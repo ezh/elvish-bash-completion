@@ -72,3 +72,5 @@ Until then, I created an adapter to bash completer that is better than nothing. 
 ## License
 
 [MIT License](https://choosealicense.com/licenses/mit/)
+
+The repository contains a copy of the unmodified bash_completion licensed under GPLv2.
