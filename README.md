@@ -6,6 +6,17 @@ Requirements:
 * bash 4.2+
 * kubectl
 
+## Install
+
+```
+epm:install github.com/ezh/elvish-kubectl-completion
+```
+
+Add to `rc.elv`
+```
+use github.com/ezh/elvish-kubectl-completion/kubectl
+```
+
 ## Performance
 
 Getting a root level hint on my laptop.
