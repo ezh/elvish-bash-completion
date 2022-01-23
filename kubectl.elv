@@ -10,7 +10,7 @@ fn kubectl_completion {|@cmd|
   # The fix allowing to use aliases with this function
   # We could call if as 'k get ...' or 'blabla get ...'
   # It will be always kubectl
-  $cmd[0] = 'kubectl' 
+  set cmd[0] = 'kubectl' 
 
   var completions = [(bash --norc --noprofile $rc_dir/kubectl_completion.sh $rc_dir (- (count $cmd) 1) $@cmd | from-lines)]
   var prefix = $cmd[-1]
