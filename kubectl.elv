@@ -7,6 +7,11 @@ fn kubectl_completion {|@cmd|
   # Sometimes it works. With Rancher clusters for example
   # kubectl __complete (drop 1 $cmd) 2>/dev/null | awk -F '\t' '$0 !~ /^:/ {print $1}'
 
+  # The fix allowing to use aliases with this function
+  # We could call if as 'k get ...' or 'blabla get ...'
+  # It will be always kubectl
+  $cmd[0] = 'kubectl' 
+
   var completions = [(bash --norc --noprofile $rc_dir/kubectl_completion.sh $rc_dir (- (count $cmd) 1) $@cmd | from-lines)]
   var prefix = $cmd[-1]
   if (eq $prefix '') {

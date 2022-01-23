@@ -17,6 +17,21 @@ Add to `rc.elv`
 use github.com/ezh/elvish-kubectl-completion/kubectl
 ```
 
+## Aliases
+
+Completer support aliases. It always replaces the first argument with `kubectl`
+
+An example of adding `k` alias
+
+```
+fn k {|@arg|
+  kubectl $@arg
+}
+edit:add-var k~ $k~
+
+set edit:completion:arg-completer[k] = $kubectl:kubectl_completion~
+```
+
 ## Performance
 
 Getting a root level hint on my laptop.
