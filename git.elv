@@ -3,19 +3,14 @@ use path
 
 var rc_dir = (path:dir (src)[name])
 
-fn kubectl_completion {|@cmd|
-  # Sometimes it works. With Rancher clusters for example
-  # kubectl __complete (drop 1 $cmd) 2>/dev/null | awk -F '\t' '$0 !~ /^:/ {print $1}'
-
+fn git_completion {|@cmd|
   if (eq $cmd []) {
     return
   }
   # The fix allowing to use aliases with this function
-  # We could call if as 'k get ...' or 'blabla get ...'
-  # It will be always kubectl
-  set cmd[0] = kubectl
+  set cmd[0] = git
 
-  var completions = [(bash --norc --noprofile $rc_dir/kubectl_completion.sh $rc_dir (- (count $cmd) 1) $@cmd | from-lines | each {|n| str:trim-space $n} )]
+  var completions = [( bash --norc --noprofile $rc_dir/adapter_git.sh $rc_dir (- (count $cmd) 1) $@cmd | from-lines | each {|n| str:trim-space $n} )]
   var prefix = $cmd[-1]
   if (eq $prefix '') {
     put $@completions
@@ -33,4 +28,4 @@ fn kubectl_completion {|@cmd|
   }
 }
 
-set edit:completion:arg-completer[kubectl] = $kubectl_completion~
+set edit:completion:arg-completer[git] = $git_completion~

@@ -1,20 +1,22 @@
-# Elvish Kubectl completion adapter
+# Elvish completion adapter
 
 It is a BASH adapter.
 
 Requirements:
 * bash 4.2+
+* elvish 0.17
 * kubectl
 
 ## Install
 
 ```
-epm:install github.com/ezh/elvish-kubectl-completion
+epm:install github.com/ezh/elvish-bash-completion
 ```
 
 Add to `rc.elv`
 ```
-use github.com/ezh/elvish-kubectl-completion/kubectl
+use github.com/ezh/elvish-bash-completion/kubectl
+use github.com/ezh/elvish-bash-completion/git
 ```
 
 ## Aliases
@@ -95,8 +97,12 @@ Not bad?
 I hope that Elvish will be 1st class citizen among other shells, and Kubectl/Cobra will natively support it.
 Until then, I created an adapter to bash completer that is better than nothing. Ezh.
 
+### External resources
+
+* [bash_completion](https://github.com/scop/bash-completion/blob/master/bash_completion) GPLv2
+* [git-completion.bash](https://github.com/git/git/blob/master/contrib/completion/git-completion.bash) GPLv2
+
 ## License
 
 [MIT License](https://choosealicense.com/licenses/mit/)
 
-The repository contains a copy of the unmodified bash_completion licensed under GPLv2.
