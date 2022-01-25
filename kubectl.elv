@@ -15,7 +15,7 @@ fn kubectl_completion {|@cmd|
   # It will be always kubectl
   set cmd[0] = kubectl
 
-  var completions = [(bash --norc --noprofile $rc_dir/kubectl_completion.sh $rc_dir (- (count $cmd) 1) $@cmd | from-lines | each {|n| str:trim-space $n} )]
+  var completions = [(bash --norc --noprofile $rc_dir/adapter_kubectl.sh $rc_dir (- (count $cmd) 1) $@cmd | from-lines | each {|n| str:trim-space $n} )]
   var prefix = $cmd[-1]
   if (eq $prefix '') {
     put $@completions
