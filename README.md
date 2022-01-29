@@ -6,6 +6,7 @@ Requirements:
 * bash 4.2+
 * elvish 0.17
 * kubectl
+* helm
 
 ## Install
 
@@ -15,8 +16,9 @@ epm:install github.com/ezh/elvish-bash-completion
 
 Add to `rc.elv`
 ```
-use github.com/ezh/elvish-bash-completion/kubectl
 use github.com/ezh/elvish-bash-completion/git
+use github.com/ezh/elvish-bash-completion/helm
+use github.com/ezh/elvish-bash-completion/kubectl
 ```
 
 ## Aliases
